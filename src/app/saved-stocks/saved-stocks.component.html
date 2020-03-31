@@ -1,0 +1,28 @@
+<div class="container">
+    <br>
+    <h1>Saved Stocks</h1>
+
+    <table class="table">
+        <thead>
+            <tr>         
+            <th>Id</th>
+            <th>Stock Name</th>
+            <th>Volume</th>
+            <th>Market Cap</th>
+            <th>Risk</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stock of stocks">
+                <ng-container>
+                        <th>{{stock.id}}</th>
+                        <th>{{stock.stock_name}}</th>
+                        <th>{{stock.volume}}</th>
+                        <th>{{stock.market_cap}}</th>
+                        <th>{{stock.risk}}</th>
+                </ng-container>
+            </tr>        
+        </tbody>
+    </table>
+</div>

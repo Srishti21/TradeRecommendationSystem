@@ -1,0 +1,51 @@
+<br>
+<br>
+<div class="card card-text" style="padding: 10px; background-color: #c0c0c0; text-align: center;" >
+    <h4>
+            "We have considered every potential risk, except the risk of avoiding all the risk."
+    </h4>
+</div> 
+
+<br>
+
+<h3>What level of risk you choose?</h3>
+<nav  class="navbar">
+    <div class="container">
+            <button id="high" (click)="onClick($event)" class="btn">HIGH</button>
+            <button id="medium" (click)="onClick($event)" class="btn">MEDIUM</button>
+            <button id="low" (click)="onClick($event)" class="btn">LOW</button>
+    </div>  
+</nav>
+
+
+
+<hr>
+
+<div *ngIf="riskButtonValue">
+<h1>Stock List</h1>
+
+<table class="table">
+    <thead>
+      <tr>         
+        <th>Id</th>
+        <th>Stock Name</th>
+        <th>Volume</th>
+        <th>Market Cap</th>
+        <th>Risk</th>
+        <th></th>
+     </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let stock of stocks">
+            <ng-container *ngIf="stock.risk == riskButtonValue">
+                    <th>{{stock.id}}</th>
+                    <th>{{stock.stock_name}}</th>
+                    <th>{{stock.volume}}</th>
+                    <th>{{stock.market_cap}}</th>
+                    <th>{{stock.risk}}</th>
+                    <th><button (click)=saveStocks(stock) class="btn btn-success">Save</button></th>
+            </ng-container>
+        </tr>        
+    </tbody>
+</table>
+</div>
